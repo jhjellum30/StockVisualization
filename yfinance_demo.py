@@ -10,5 +10,5 @@ from datetime import datetime
 ticker=yf.Ticker('msft')
 stockinfo = ticker.info
 
-for key.value in stockinfo.items():
+for key,value in stockinfo.items():
    print(key, ":", value)
