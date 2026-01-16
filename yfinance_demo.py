@@ -14,5 +14,5 @@ stockinfo = msft.info
 # for key,value in stockinfo.items():
 #     print(key, ":", value)
 
-print(msft.dividends)
+print(msft.SYMBOL)
 
