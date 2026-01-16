@@ -15,4 +15,4 @@ stockinfo = ticker.info
 #   print(key, ":", value)
 
 print(ticker.dividends)
-#print(ticker.dayLow)
+
