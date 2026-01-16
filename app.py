@@ -10,7 +10,7 @@ st.set_page_config("Stock Market Visualizer", layout="wide")
 st.title("📈 Stock Market Visualizer")
 
 # Sidebar Controls
-ticker = st.sidebar.text_input("Stock Ticker", "AAPL")
+ticker = st.sidebar.text_input("Stock Ticker", "NVDA")
 start = st.sidebar.date_input("Start Date", pd.to_datetime("2022-01-01"))
 end = st.sidebar.date_input("End Date", pd.to_datetime("today"))
 
