@@ -12,7 +12,7 @@ stockinfo = ticker.info
 
 # This prints all items
 #for key,value in stockinfo.items():
-#   print(key, ":", value)
+#print(key, ":", value)
 
 print(ticker.dividends)
 
