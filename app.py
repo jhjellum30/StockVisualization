@@ -80,7 +80,7 @@ tickers = st.multiselect("Select stocks", ["AAPL", "MSFT", "GOOGL", "AMZN", "TSL
 if tickers:
     prices = yf.download(tickers, start=start, end=end)['Close']
     corr = prices.corr()
-    st.dataframe(corr.style.background_gradient(cmap="coolwarm"))
+    #st.dataframe(corr.style.background_gradient(cmap="coolwarm"))
 
 # Save Config
 if st.button("💾 Save Settings"):
