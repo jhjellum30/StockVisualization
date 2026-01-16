@@ -1,9 +1,11 @@
 import streamlit as st
 import yfinance as yf
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
+
+
 from datetime import datetime
-plt.style.use('seaborn')
+#plt.style.use('seaborn')
 
 ticker=yf.Ticker('msft')
 stockinfo = ticker.info
