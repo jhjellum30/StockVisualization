@@ -7,12 +7,12 @@ import pandas as pd
 from datetime import datetime
 #plt.style.use('seaborn')
 
-ticker=yf.Ticker('msft')
-stockinfo = ticker.info
+msft=yf.Ticker('msft')
+stockinfo = msft.info
 
 # This prints all items
 #for key,value in stockinfo.items():
 #print(key, ":", value)
 
-print(ticker.dividends)
+print(msft.dividends)
 
