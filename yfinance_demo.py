@@ -10,5 +10,9 @@ from datetime import datetime
 ticker=yf.Ticker('msft')
 stockinfo = ticker.info
 
-for key,value in stockinfo.items():
-   print(key, ":", value)
+# This prints all items
+#for key,value in stockinfo.items():
+#   print(key, ":", value)
+
+print(ticker.dayHigh)
+print(ticker.dayLow)
