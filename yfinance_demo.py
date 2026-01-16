@@ -14,5 +14,5 @@ stockinfo = ticker.info
 #for key,value in stockinfo.items():
 #   print(key, ":", value)
 
-print(ticker.dayHigh)
-print(ticker.dayLow)
+print(ticker.dividends)
+#print(ticker.dayLow)
