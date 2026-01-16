@@ -6,7 +6,7 @@ from utils.indicators import moving_average, rsi, bollinger_bands
 from utils.portfolio import load_portfolio, portfolio_value
 from utils.storage import save_config, load_config
 
-st.set_page_config("Stock Market Visualizer", layout="wide")
+st.set_page_config("Stock Market Visualizer v5", layout="wide")
 st.title("📈 Stock Market Visualizer")
 
 # Sidebar Controls
