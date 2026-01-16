@@ -11,8 +11,8 @@ msft=yf.Ticker('msft')
 stockinfo = msft.info
 
 # This prints all items
-#for key,value in stockinfo.items():
-#print(key, ":", value)
+# for key,value in stockinfo.items():
+#     print(key, ":", value)
 
 print(msft.dividends)
 
