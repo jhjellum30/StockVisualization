@@ -10,7 +10,7 @@ st.set_page_config("Stock Market Visualizer", layout="wide")
 st.title("📈 Stock Market Visualizer v5")
 
 # Sidebar Controls
-ticker = st.sidebar.text_input("Stock Ticker", "AAPL")
+ticker = st.sidebar.text_input("Stock Ticker", "TU")
 start = st.sidebar.date_input("Start Date", pd.to_datetime("2022-01-01"))
 end = st.sidebar.date_input("End Date", pd.to_datetime("today"))
 
@@ -76,7 +76,7 @@ if uploaded:
 
 # Correlation Analysis
 st.subheader("📊 Stock Correlation")
-tickers = st.multiselect("Select stocks", ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA"])
+tickers = st.multiselect("Select stocks", ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA",])
 if tickers:
     prices = yf.download(tickers, start=start, end=end)['Close']
     corr = prices.corr()
