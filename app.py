@@ -35,7 +35,7 @@ fig.add_candlestick(
     high=df['High'],
     low=df['Low'],
     close=df['Close'],
-    #name="Price"
+    name="Price"
 )
 
 fig.add_trace(go.Scatter(x=df.index, y=df['MA'], name="MA"))
