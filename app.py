@@ -30,7 +30,6 @@ fig.update_layout(
 
 fig.show()
 
-exit()
 
 import streamlit as st
 import yfinance as yf
