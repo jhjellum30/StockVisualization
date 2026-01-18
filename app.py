@@ -34,7 +34,7 @@ fig.update_layout(
 # Show the plot
 fig.show()
 
-exit()
+"""
 import streamlit as st
 import yfinance as yf
 import pandas as pd
@@ -133,3 +133,4 @@ if st.button("💾 Save Settings"):
         "show_bb": show_bb
     })
     st.success("Configuration Saved!")
+    """
