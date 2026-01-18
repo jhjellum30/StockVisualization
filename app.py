@@ -44,6 +44,9 @@ if show_bb:
     fig.add_trace(go.Scatter(x=df.index, y=df['BB_upper'], name="BB Upper", line=dict(dash='dot')))
     fig.add_trace(go.Scatter(x=df.index, y=df['BB_lower'], name="BB Lower", line=dict(dash='dot')))
 
+# Added as test
+fig.add_trace(go.Scatter(x=df.index, y=df.index, name="Price", line=dict(dash='dot')))
+
 fig.update_layout(height=600, xaxis_rangeslider_visible=False)
 st.plotly_chart(fig, use_container_width=True)
 
@@ -56,8 +59,7 @@ if show_rsi:
     rsi_fig.add_hline(y=30, line_dash="dash")
     st.plotly_chart(rsi_fig, use_container_width=True)
     
-# Added as test
-fig.add_trace(go.Scatter(x=df.index, y=df.index, name="Price", line=dict(dash='dot')))
+
 
 # Export
 st.download_button(
