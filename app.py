@@ -47,8 +47,8 @@ if st.sidebar.button("Fetch Data"):
             st.line_chart(df2["Close"], color="#ff0000")
 
             combined = pd.DataFrame({
-                df1['Close'],
-                df2['Close']
+                stock1: df1['Close'],
+                stock2: df2['Close']
             })
             st.line_chart(combined)
 
