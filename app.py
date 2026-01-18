@@ -3,6 +3,18 @@ import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
 
+# Fetch data function with error handling
+@st.cache_data
+def fetch_data(ticker, start, end):
+    try:
+        data = yf.download(ticker, start=start, end=end)
+        if data.empty:
+            return None
+        return data
+    except Exception as e:
+        st.error(f"Error fetching data for {ticker}: {e}")
+        return None
+
 # Streamlit page configuration
 st.set_page_config(page_title="Stock Dashboard", layout="wide")
 
