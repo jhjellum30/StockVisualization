@@ -41,8 +41,10 @@ if start_date > end_date:
 if st.sidebar.button("Fetch Data"):
     try:
         # Download stock data
-        data1 = fetch_data("AAPL", start_date, end_date)
-        data2 = fetch_data("TRU", start_date, end_date)
+        ticker1 = "AAPL"
+        ticker2 = "TRU"
+        data1 = fetch_data(ticker1, start_date, end_date)
+        data2 = fetch_data(ticker2, start_date, end_date)
     
 
         if data1.empty:
