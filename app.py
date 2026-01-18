@@ -38,14 +38,14 @@ fig = go.Figure()
 #    name="Price"
 #)
 
+# Added as test
+fig.add_trace(go.Scatter(x=df.index, y=df['Close'], name="Price"))
+
 fig.add_trace(go.Scatter(x=df.index, y=df['MA'], name="MA"))
 
 if show_bb:
     fig.add_trace(go.Scatter(x=df.index, y=df['BB_upper'], name="BB Upper", line=dict(dash='dot')))
     fig.add_trace(go.Scatter(x=df.index, y=df['BB_lower'], name="BB Lower", line=dict(dash='dot')))
-
-# Added as test
-fig.add_trace(go.Scatter(x=df.index, y=df.index, name="Price", line=dict(dash='dot')))
 
 fig.update_layout(height=600, xaxis_rangeslider_visible=False)
 st.plotly_chart(fig, use_container_width=True)
