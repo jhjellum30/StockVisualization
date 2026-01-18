@@ -34,7 +34,7 @@ if st.sidebar.button("Fetch Data"):
         df1 = stock1.history(start=start_date, end=end_date)
         df2 = stock2.history(start=start_date, end=end_date)
         
-        if df.empty:
+        if df1.empty:
             st.error(f"No data found for symbol1 '{symbol1}'. Please check the symbol1 and date range.")
         else:
             #st.subheader(f"Stock Data for {symbol1}")
