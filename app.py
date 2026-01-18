@@ -1,31 +1,32 @@
 import plotly.graph_objects as go
-import pandas as pd
 
-# Example OHLC data
-data = {
-    'Date': pd.date_range(start='2025-01-01', periods=5, freq='D'),
-    'Open': [100, 102, 101, 105, 107],
-    'High': [105, 106, 103, 108, 110],
-    'Low': [99, 101, 100, 104, 106],
-    'Close': [104, 103, 102, 107, 109]
-}
-df = pd.DataFrame(data)
+# Sample data
+x_values = [1, 2, 3, 4, 5]
+y_values = [10, 15, 13, 17, 14]
 
-# Create candlestick chart
-fig = go.Figure(data=[go.Candlestick(
-    x=df['Date'],
-    open=df['Open'],
-    high=df['High'],
-    low=df['Low'],
-    close=df['Close']
-)])
+# Create a Figure object
+fig = go.Figure()
+
+# Add a line trace
+fig.add_trace(
+    go.Scatter(
+        x=x_values,
+        y=y_values,
+        mode='lines+markers',  # Show both lines and markers
+        name='Sample Data',
+        line=dict(color='royalblue', width=2),
+        marker=dict(size=8, color='orange', symbol='circle')
+    )
+)
 
 # Customize layout
 fig.update_layout(
-    title='Candlestick Chart Example',
-    xaxis_title='Date',
-    yaxis_title='Price',
-    xaxis_rangeslider_visible=False
+    title="Line Chart Example with plotly.graph_objects",
+    xaxis_title="X Axis Label",
+    yaxis_title="Y Axis Label",
+    template="plotly_white",  # Clean background
+    hovermode="x unified"     # Single hover label for all traces
 )
 
+# Show the interactive plot
 fig.show()
