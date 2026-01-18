@@ -1,6 +1,7 @@
 import yfinance as yf
 import plotly.graph_objects as go
 import pandas as pd
+import streamlit as st
 
 ticker = "TRU"
 start = "2025-01-01"
@@ -27,4 +28,7 @@ fig.update_layout(
     template="plotly_white"
 )
 
-fig.show()
+fig.update_layout(height=600, xaxis_rangeslider_visible=False)
+st.plotly_chart(fig, use_container_width=True)
+
+#fig.show()
