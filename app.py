@@ -54,7 +54,7 @@ if st.sidebar.button("Fetch Data"):
             combined = pd.DataFrame({
                 stock1: df1['Close'],
                 stock2: df2['Close'],
-                stock2: df3['Close'],
+                stock3: df3['Close'],
             })
             st.line_chart(combined)
 
