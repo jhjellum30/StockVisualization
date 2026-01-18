@@ -7,6 +7,8 @@ start = "2025-01-01"
 end = "2026-01-01"
 data = yf.download(ticker, start=start, end=end, progress=False)
 
+print("Working on - TRU")
+
 # Create the scatter plot
 fig = go.Figure()
 fig.add_trace(go.Scatter(
