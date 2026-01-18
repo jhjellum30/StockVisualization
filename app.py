@@ -45,7 +45,7 @@ if st.sidebar.button("Fetch Data"):
         data2 = fetch_data("TRU", start_date, end_date)
     
 
-        if df.empty:
+        if data1.empty:
             st.error(f"No data found for symbol '{symbol}'. Please check the symbol and date range.")
         else:
             #st.subheader(f"Stock Data for {symbol}")
