@@ -23,15 +23,6 @@ fig.add_trace(go.Scatter(
     line=dict(color='blue', width=2)
 ))
 
-# Customize layout
-fig.update_layout(
-    title=f"{ticker} Close Price ({start} to {end})",
-    xaxis_title="Date",
-    yaxis_title="Close Price (USD)",
-    template="plotly_white"
-)
-
-fig.update_layout(height=600, xaxis_rangeslider_visible=False)
 st.plotly_chart(fig, width=True)
 
 #fig.show()
