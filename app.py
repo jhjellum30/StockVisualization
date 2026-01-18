@@ -2,9 +2,10 @@ import yfinance as yf
 import plotly.graph_objects as go
 import pandas as pd
 
+ticker = "TRU"
 start = "2025-01-01"
 end = "2026-01-01"
-data = yf.download("TRU", start=start, end=end, progress=False)
+data = yf.download(ticker, start=start, end=end, progress=False)
 
 # Create the scatter plot
 fig = go.Figure()
