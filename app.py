@@ -39,7 +39,8 @@ fig = go.Figure()
 #)
 
 # Added as test
-fig.add_trace(go.Scatter(x=df.index, y=df['Close'], name="Price"))
+
+fig.add_trace(go.Scatter(x='Date', y='Close', name="Price"))
 
 fig.add_trace(go.Scatter(x=df.index, y=df['MA'], name="MA"))
 
