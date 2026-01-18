@@ -28,7 +28,7 @@ df['RSI'] = rsi(df)
 df['BB_upper'], df['BB_lower'] = bollinger_bands(df)
 
 # Candlestick Chart
-#fig = go.Figure()
+fig = go.Figure()
 #fig.add_candlestick(
 #    x=df.index,
 #   open=df['Open'],
