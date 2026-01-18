@@ -6,18 +6,21 @@ from datetime import datetime, timedelta
 # Streamlit page configuration
 st.set_page_config(page_title="Stock Dashboard", layout="wide")
 
-st.title("📈 Stock Dashboard with yFinance")
+st.title("📈 Stock Comparison Dashboard v6")
 
 # Sidebar inputs
 st.sidebar.header("Stock Parameters")
 
 # Default values
 default_symbol = "AAPL"
+default_symbol2 = "GOOG"
+default_symbol3 = "NVDA"
 default_start = datetime.today() - timedelta(days=365)
 default_end = datetime.today()
 
-symbol1 = st.sidebar.text_input("Stock Symbol (e.g., AAPL, MSFT, TSLA)", default_symbol).upper()
-symbol2 = "TRU"
+symbol1 = st.sidebar.text_input("Stock Symbol #1 (e.g., AAPL, MSFT, TSLA)", default_symbol).upper()
+symbol2 = st.sidebar.text_input("Stock Symbol #2 (e.g., AAPL, MSFT, TSLA)", default_symbol2).upper()
+symbol3 = st.sidebar.text_input("Stock Symbol #3 (e.g., AAPL, MSFT, TSLA)", default_symbol3).upper()
 start_date = st.sidebar.date_input("Start Date", default_start)
 end_date = st.sidebar.date_input("End Date", default_end)
 
@@ -31,8 +34,10 @@ if st.sidebar.button("Fetch Data"):
         # Download stock data
         stock1 = yf.Ticker(symbol1)
         stock2 = yf.Ticker(symbol2)
+        stock3 = yf.Ticker(symbol3)
         df1 = stock1.history(start=start_date, end=end_date)
         df2 = stock2.history(start=start_date, end=end_date)
+        df3 = stock3.history(start=start_date, end=end_date)
         
         if df1.empty:
             st.error(f"No data found for symbol1 '{symbol1}'. Please check the symbol1 and date range.")
@@ -49,9 +54,9 @@ if st.sidebar.button("Fetch Data"):
             combined = pd.DataFrame({
                 stock1: df1['Close'],
                 stock2: df2['Close'],
+                stock2: df3['Close'],
             })
             st.line_chart(combined)
-
 
             # Volume chart
             #st.subheader("Trading Volume Over Time")
