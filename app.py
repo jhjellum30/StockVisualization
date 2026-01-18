@@ -1,19 +1,8 @@
+Works for one ticker symbol:
 import streamlit as st
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
-
-# Fetch data function with error handling
-@st.cache_data
-def fetch_data(ticker, start, end):
-    try:
-        data = yf.download(ticker, start=start, end=end)
-        if data.empty:
-            return None
-        return data
-    except Exception as e:
-        st.error(f"Error fetching data for {ticker}: {e}")
-        return None
 
 # Streamlit page configuration
 st.set_page_config(page_title="Stock Dashboard", layout="wide")
@@ -28,8 +17,7 @@ default_symbol = "AAPL"
 default_start = datetime.today() - timedelta(days=365)
 default_end = datetime.today()
 
-#symbol = st.sidebar.text_input("Stock Symbol (e.g., AAPL, MSFT, TSLA)", default_symbol).upper()
-
+symbol = st.sidebar.text_input("Stock Symbol (e.g., AAPL, MSFT, TSLA)", default_symbol).upper()
 start_date = st.sidebar.date_input("Start Date", default_start)
 end_date = st.sidebar.date_input("End Date", default_end)
 
@@ -41,27 +29,18 @@ if start_date > end_date:
 if st.sidebar.button("Fetch Data"):
     try:
         # Download stock data
-        ticker1 = "AAPL"
-        ticker2 = "TRU"
-        data1 = fetch_data(ticker1, start_date, end_date)
-        data2 = fetch_data(ticker2, start_date, end_date)
-    
+        stock = yf.Ticker(symbol)
+        df = stock.history(start=start_date, end=end_date)
 
-        if data1.empty:
+        if df.empty:
             st.error(f"No data found for symbol '{symbol}'. Please check the symbol and date range.")
         else:
             #st.subheader(f"Stock Data for {symbol}")
             #st.dataframe(df)
 
             # Price chart
-            #st.subheader("Closing Price Over Time")
-            #st.line_chart(df["Close"])
-            st.subheader("Closing Price Comparison")
-            combined = pd.DataFrame({
-                ticker1: data1['Close'],
-                ticker2: data2['Close']
-        })
-        st.line_chart(combined)
+            st.subheader("Closing Price Over Time")
+            st.line_chart(df["Close"])
 
             # Volume chart
             #st.subheader("Trading Volume Over Time")
