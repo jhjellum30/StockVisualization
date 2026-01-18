@@ -55,6 +55,9 @@ if show_rsi:
     rsi_fig.add_hline(y=70, line_dash="dash")
     rsi_fig.add_hline(y=30, line_dash="dash")
     st.plotly_chart(rsi_fig, use_container_width=True)
+    
+# Added as test
+fig.add_trace(go.Scatter(x=df.index, y=df.index, name="Price", line=dict(dash='dot')))
 
 # Export
 st.download_button(
