@@ -8,7 +8,10 @@ start = "2025-01-01"
 end = "2026-01-01"
 data = yf.download(ticker, start=start, end=end, progress=False)
 
-print("Working on - TRU")
+#print("Working on - TRU")
+
+st.set_page_config("Stock Market Visualizer", layout="wide")
+st.title("📈 Stock Market Visualizer v5")
 
 # Create the scatter plot
 fig = go.Figure()
