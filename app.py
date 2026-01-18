@@ -16,7 +16,8 @@ default_symbol = "AAPL"
 default_start = datetime.today() - timedelta(days=365)
 default_end = datetime.today()
 
-symbol = st.sidebar.text_input("Stock Symbol (e.g., AAPL, MSFT, TSLA)", default_symbol).upper()
+symbol1 = st.sidebar.text_input("Stock Symbol (e.g., AAPL, MSFT, TSLA)", default_symbol).upper()
+symbol2 = "TRU"
 start_date = st.sidebar.date_input("Start Date", default_start)
 end_date = st.sidebar.date_input("End Date", default_end)
 
@@ -28,18 +29,21 @@ if start_date > end_date:
 if st.sidebar.button("Fetch Data"):
     try:
         # Download stock data
-        stock = yf.Ticker(symbol)
-        df = stock.history(start=start_date, end=end_date)
-
+        stock1 = yf.Ticker(symbol1)
+        stock2 = yf.Ticker(symbol2)
+        df1 = stock1.history(start=start_date, end=end_date)
+        df2 = stock2.history(start=start_date, end=end_date)
+        
         if df.empty:
-            st.error(f"No data found for symbol '{symbol}'. Please check the symbol and date range.")
+            st.error(f"No data found for symbol1 '{symbol1}'. Please check the symbol1 and date range.")
         else:
-            #st.subheader(f"Stock Data for {symbol}")
+            #st.subheader(f"Stock Data for {symbol1}")
             #st.dataframe(df)
 
             # Price chart
             st.subheader("Closing Price Over Time")
-            st.line_chart(df["Close"])
+            st.line_chart(df1["Close"])
+            st.line_chart(df2["Close"])
 
             # Volume chart
             #st.subheader("Trading Volume Over Time")
