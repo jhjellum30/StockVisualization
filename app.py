@@ -68,3 +68,12 @@ if st.sidebar.button("Fetch Data"):
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
+
+
+stock = yf.Ticker("AAPL") 
+info = stock.info
+
+# Extract the P/E ratio
+pe_ratio = info.get("forwardPE")  # Forward P/E ratio
+
+print(f"The Forward P/E ratio of AAPL is: {pe_ratio}")
