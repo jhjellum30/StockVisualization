@@ -71,10 +71,18 @@ if st.sidebar.button("Fetch Data"):
         st.error(f"An error occurred: {e}")
 
 # New stuff below
-ticker = "AAPL"
 
-stock_info = yf.Ticker(ticker)
-stock_info.info
+tickers = yf.Tickers('msft aapl goog')
+
+# access each ticker using (example)
+tickers.tickers['MSFT'].info
+tickers.tickers['AAPL'].history(period="1mo")
+tickers.tickers['GOOG'].actions
+
+#ticker = "AAPL"
+
+#stock_info = yf.Ticker(ticker)
+#stock_info.info
 
 #price = stock_info["currentPrice"]
 #EPS = stock_info["trailingEps"]
