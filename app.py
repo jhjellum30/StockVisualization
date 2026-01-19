@@ -72,12 +72,12 @@ if st.sidebar.button("Fetch Data"):
 
 # New stuff below
 
-tickers = yf.Tickers('msft aapl goog')
+tickers = yf.Ticker('TRU')
 
 # access each ticker using (example)
-tickers.tickers['MSFT'].info
-tickers.tickers['AAPL'].history(period="1mo")
-tickers.tickers['GOOG'].actions
+tickers.tickers['TRU'].info
+#tickers.tickers['AAPL'].history(period="1mo")
+#tickers.tickers['GOOG'].actions
 
 #ticker = "AAPL"
 
