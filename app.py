@@ -78,46 +78,4 @@ stock_info = yf.Ticker(ticker).info
 price = stock_info["currentPrice"]
 EPS = stock_info["trailingEps"]
 PE = round(price / EPS, 2)
-print (PE)
-
-"""
-if ticker_symbol:
-    try:
-        # Fetch the ticker data
-        ticker_data = yf.Ticker(ticker_symbol)
-        
-        # Get quarterly earnings data
-        # This returns a DataFrame with 'Quarter' as index and 'Earnings' column
-        quarterly_earnings = ticker_data.quarterly_earnings
-
-        if not quarterly_earnings.empty:
-            # Prepare data for plotting
-            # Convert index to a column for Plotly
-            quarterly_earnings = quarterly_earnings.reset_index()
-            
-            # Ensure 'Quarter' is treated as a string for correct x-axis labels
-            quarterly_earnings['Quarter'] = quarterly_earnings['Quarter'].astype(str)
-
-            # Create an interactive bar chart using 
-
-            fig = px.bar(
-                quarterly_earnings,
-                x="Quarter",
-                y="Earnings",
-                title=f"{ticker_symbol} Quarterly Earnings",
-                labels={"Earnings": "Earnings (Millions USD)"},
-                color="Quarter", # Differentiate bars by quarter
-            )
-            
-            # Display the chart in Streamlit
-            st.plotly_chart(fig, use_container_width=True)
-            
-            # Optionally display the raw data table
-            st.write(f"Raw quarterly earnings data for {ticker_symbol}:")
-            st.dataframe(quarterly_earnings)
-
-        else:
-            st.warning(f"No quarterly earnings data found for {ticker_symbol}.")
-
-    except Exception as e:
-        st.error(f"An error occurred while fetching data: {e}")
+print (PE)         
