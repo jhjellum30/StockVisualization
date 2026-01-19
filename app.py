@@ -71,8 +71,16 @@ if st.sidebar.button("Fetch Data"):
         st.error(f"An error occurred: {e}")
 
 # New stuff below
-ticker_symbol = "AAPL"
+ticker = "AAPL"
 
+ticker = input("Enter a Ticker Sumbol: ")
+stock_info = yf.Ticker(ticker).info
+price = stock_info["currentPrice"]
+EPS = stock_info["trailingEps"]
+PE = round(price / EPS, 2)
+print (PE)
+
+"""
 if ticker_symbol:
     try:
         # Fetch the ticker data
