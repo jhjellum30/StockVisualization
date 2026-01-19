@@ -73,7 +73,6 @@ if st.sidebar.button("Fetch Data"):
 # New stuff below
 ticker = "AAPL"
 
-ticker = input("Enter a Ticker Sumbol: ")
 stock_info = yf.Ticker(ticker).info
 price = stock_info["currentPrice"]
 EPS = stock_info["trailingEps"]
