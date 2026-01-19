@@ -72,7 +72,7 @@ if st.sidebar.button("Fetch Data"):
 
 # New stuff below
 
-tickers = yf.Tickers('BA','TRU','SPY')
+tickers = yf.Tickers('BA TRU SPY')
 
 # access each ticker using (example)
 ticker.tickers['TRU'].info
