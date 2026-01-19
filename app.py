@@ -69,7 +69,14 @@ if st.sidebar.button("Fetch Data"):
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
+# New data here
+import yfinance as yf
 
+symbol = yf.Ticker("msft").info
+symbol["trailingPE"]
+symbol["forwardPE"]
+
+"""
 stock = yf.Ticker("AAPL") 
 info = stock.info
 
@@ -77,3 +84,11 @@ info = stock.info
 pe_ratio = info.get("forwardPE")  # Forward P/E ratio
 
 print(f"The Forward P/E ratio of AAPL is: {pe_ratio}")
+
+for ticker in tickers:
+    stock = yf.Ticker(ticker)
+    info = stock.info
+    forward_pe = info.get("forwardPE")
+    trailing_pe = info.get("trailingPE")
+    print(f"{ticker}: Forward P/E = {forward_pe}, Trailing P/E = {trailing_pe}")
+"""
