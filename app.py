@@ -73,7 +73,7 @@ if st.sidebar.button("Fetch Data"):
 # New stuff below
 ticker = "AAPL"
 
-stock_info = yf.Ticker(ticker).info
+stock_info = yf.Ticker(ticker)
 price = stock_info["currentPrice"]
 EPS = stock_info["trailingEps"]
 PE = round(price / EPS, 2)
