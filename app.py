@@ -91,7 +91,8 @@ if ticker_symbol:
             quarterly_earnings['Quarter'] = quarterly_earnings['Quarter'].astype(str)
 
             # Create an interactive bar chart using 
-fig = px.bar(
+
+            fig = px.bar(
                 quarterly_earnings,
                 x="Quarter",
                 y="Earnings",
