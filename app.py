@@ -1,6 +1,7 @@
 import streamlit as st
 import yfinance as yf
 import pandas as pd
+import plotly.express as px
 from datetime import datetime, timedelta
 
 # Streamlit page configuration
@@ -69,24 +70,45 @@ if st.sidebar.button("Fetch Data"):
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
-# New data here
-symbol = yf.Ticker("msft").info
-symbol["trailingPE"]
-symbol["forwardPE"]
+# New stuff below
+ticker_symbol = "AAPL"
 
-"""
-stock = yf.Ticker("AAPL") 
-info = stock.info
+if ticker_symbol:
+    try:
+        # Fetch the ticker data
+        ticker_data = yf.Ticker(ticker_symbol)
+        
+        # Get quarterly earnings data
+        # This returns a DataFrame with 'Quarter' as index and 'Earnings' column
+        quarterly_earnings = ticker_data.quarterly_earnings
 
-# Extract the P/E ratio
-pe_ratio = info.get("forwardPE")  # Forward P/E ratio
+        if not quarterly_earnings.empty:
+            # Prepare data for plotting
+            # Convert index to a column for Plotly
+            quarterly_earnings = quarterly_earnings.reset_index()
+            
+            # Ensure 'Quarter' is treated as a string for correct x-axis labels
+            quarterly_earnings['Quarter'] = quarterly_earnings['Quarter'].astype(str)
 
-print(f"The Forward P/E ratio of AAPL is: {pe_ratio}")
+            # Create an interactive bar chart using 
+fig = px.bar(
+                quarterly_earnings,
+                x="Quarter",
+                y="Earnings",
+                title=f"{ticker_symbol} Quarterly Earnings",
+                labels={"Earnings": "Earnings (Millions USD)"},
+                color="Quarter", # Differentiate bars by quarter
+            )
+            
+            # Display the chart in Streamlit
+            st.plotly_chart(fig, use_container_width=True)
+            
+            # Optionally display the raw data table
+            st.write(f"Raw quarterly earnings data for {ticker_symbol}:")
+            st.dataframe(quarterly_earnings)
 
-for ticker in tickers:
-    stock = yf.Ticker(ticker)
-    info = stock.info
-    forward_pe = info.get("forwardPE")
-    trailing_pe = info.get("trailingPE")
-    print(f"{ticker}: Forward P/E = {forward_pe}, Trailing P/E = {trailing_pe}")
-"""
+        else:
+            st.warning(f"No quarterly earnings data found for {ticker_symbol}.")
+
+    except Exception as e:
+        st.error(f"An error occurred while fetching data: {e}")
