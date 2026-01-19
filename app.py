@@ -73,7 +73,8 @@ if st.sidebar.button("Fetch Data"):
 # New stuff below
 ticker = "AAPL"
 
-stock_info = yf.Ticker(ticker).info
+stock_info = yf.Ticker(ticker)
+print(stock_info)
 
 #price = stock_info["currentPrice"]
 #EPS = stock_info["trailingEps"]
