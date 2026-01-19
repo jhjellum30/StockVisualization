@@ -70,8 +70,6 @@ if st.sidebar.button("Fetch Data"):
         st.error(f"An error occurred: {e}")
 
 # New data here
-import yfinance as yf
-
 symbol = yf.Ticker("msft").info
 symbol["trailingPE"]
 symbol["forwardPE"]
