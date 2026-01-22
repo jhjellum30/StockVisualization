@@ -42,6 +42,10 @@ if st.sidebar.button("Fetch Data"):
         
         if df1.empty:
             st.error(f"No data found for symbol1 '{symbol1}'. Please check the symbol1 and date range.")
+        if df2.empty:
+            st.error(f"No data found for symbol2 '{symbol2}'. Please check the symbol2 and date range.")
+        if df3.empty:
+            st.error(f"No data found for symbol3 '{symbol3}'. Please check the symbol3 and date range.")
         else:
 
             combined = pd.DataFrame({
@@ -52,12 +56,10 @@ if st.sidebar.button("Fetch Data"):
             st.line_chart(combined)
 
             # Volume chart
-            st.subheader("Trading Volume Over Time")
-            variable_output = symbol1
-            font_size_px = 30 # Can be a variable or user input (e.g., st.slider)
-
-            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
-            
+            st.subheader("Trading Volume Over Time {symbol1}'")
+            #variable_output = symbol1
+            #font_size_px = 30 # Can be a variable or user input (e.g., st.slider)
+            #st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             #st.write(symbol1)
             st.bar_chart(df1["Volume"])
 
