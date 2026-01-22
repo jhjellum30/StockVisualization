@@ -88,6 +88,14 @@ if st.sidebar.button("Fetch Data"):
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             st.write(df3.describe())
 
+            stock_info = tickers.tickers['TRU'].info
+            price = stock_info["currentPrice"]
+            EPS = stock_info["trailingEps"]
+            PE = round(price / EPS, 2)
+            print ("Ticket TRU P/E Ratio-", PE)
+            print (PE)
+
+
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
