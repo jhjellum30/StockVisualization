@@ -61,7 +61,7 @@ if st.sidebar.button("Fetch Data"):
 
             # Volume chart
             st.subheader("Trading Volume Over Time")
-            st.bar_chart(df["Volume"])
+            st.bar_chart(df1["Volume"])
 
             # Basic statistics
             #st.subheader("Summary Statistics")
