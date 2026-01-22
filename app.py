@@ -43,8 +43,6 @@ if st.sidebar.button("Fetch Data"):
         if df1.empty:
             st.error(f"No data found for symbol1 '{symbol1}'. Please check the symbol1 and date range.")
         else:
-            #st.subheader(f"Stock Data for {symbol1}")
-            #st.dataframe(df)
 
             combined = pd.DataFrame({
                 stock1: df1['Close'],
@@ -55,11 +53,13 @@ if st.sidebar.button("Fetch Data"):
 
             # Volume chart
             st.subheader("Trading Volume Over Time")
+            st.write('<p style="font-size:26px; color:red;">Here is some red text</p>', unsafe_allow_html=True)
             st.write(symbol1)
             st.bar_chart(df1["Volume"])
 
             # Basic statistics
             st.subheader("Summary Statistics")
+            st.write(symbol1)
             st.write(df1.describe())
 
     except Exception as e:
