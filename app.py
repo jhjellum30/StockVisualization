@@ -120,8 +120,10 @@ if st.sidebar.button("Fetch Data"):
             st.write("P/E Ratio-", PE )
 
             ## Relative Strength Index r&d
-            df1['RSI'] = rsi(df1)
             st.subheader("RSI Indicator")
+            variable_output = symbol3
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
+            df1['RSI'] = rsi(df1)
             rsi_fig = go.Figure()
             rsi_fig.add_trace(go.Scatter(x=df1.index, y=df1['RSI'], name="RSI"))
             rsi_fig.add_hline(y=70, line_dash="dash")
