@@ -55,30 +55,37 @@ if st.sidebar.button("Fetch Data"):
             })
             st.line_chart(combined)
 
+            font_size_px = 30 # Can be a variable or user input (e.g., st.slider)
+            
             # Volume chart
             st.subheader("Trading Volume Over Time")
             variable_output = symbol1
-            font_size_px = 30 # Can be a variable or user input (e.g., st.slider)
+            #font_size_px = 30 # Can be a variable or user input (e.g., st.slider)
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
-            #st.write(symbol1)
             st.bar_chart(df1["Volume"])
-            
-            st.subheader("Trading Volume Over Time '{symbol2}'")
+
+            variable_output = symbol2
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             st.bar_chart(df2["Volume"])
 
-            st.subheader("Trading Volume Over Time '{symbol3}'")
+            variable_output = symbol3
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             st.bar_chart(df3["Volume"])
             
 
             # Basic statistics
             st.subheader("Summary Statistics")
-            st.write(symbol1)
+            
+            variable_output = symbol1
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             st.write(df1.describe())
 
-            st.write(symbol2)
+            variable_output = symbol2
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             st.write(df2.describe())
             
-            st.write(symbol3)
+            variable_output = symbol3
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             st.write(df3.describe())
 
     except Exception as e:
