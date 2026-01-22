@@ -115,6 +115,16 @@ if st.sidebar.button("Fetch Data"):
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
 
+            ## Relative Strength Index r&d
+            df['RSI'] = rsi(df1)
+            st.subheader("RSI Indicator")
+            rsi_fig = go.Figure()
+            rsi_fig.add_trace(go.Scatter(x=df.index, y=df['RSI'], name="RSI"))
+            rsi_fig.add_hline(y=70, line_dash="dash")
+            rsi_fig.add_hline(y=30, line_dash="dash")
+            st.plotly_chart(rsi_fig, use_container_width=True)
+
+
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
