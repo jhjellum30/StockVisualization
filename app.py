@@ -70,21 +70,3 @@ if st.sidebar.button("Fetch Data"):
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
-# New stuff below
-
-tickers = yf.Tickers('BA TRU SPY')
-
-# access each ticker using (example)
-tickers.tickers['TRU'].info
-tickers.tickers['BA'].history(period="1mo")
-tickers.tickers['SPY'].actions
-
-#ticker = "AAPL"
-
-#stock_info = yf.Ticker(ticker)
-#stock_info.info
-
-#price = stock_info["currentPrice"]
-#EPS = stock_info["trailingEps"]
-#PE = round(price / EPS, 2)
-#print (PE)         
