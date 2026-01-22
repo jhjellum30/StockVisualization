@@ -13,9 +13,9 @@ st.title("📈 Stock Comparison Dashboard v6")
 st.sidebar.header("Stock Parameters")
 
 # Default values
-default_symbol = "AAPL"
-default_symbol2 = "GOOG"
-default_symbol3 = "NVDA"
+default_symbol = "CVX"
+default_symbol2 = "XOM"
+default_symbol3 = "PSX"
 default_start = datetime.today() - timedelta(days=365)
 default_end = datetime.today()
 
