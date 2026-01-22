@@ -2,6 +2,9 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import plotly.express as px
+from utils.indicators import moving_average, rsi, bollinger_bands
+from utils.portfolio import load_portfolio, portfolio_value
+from utils.storage import save_config, load_config
 from datetime import datetime, timedelta
 
 # Streamlit page configuration
