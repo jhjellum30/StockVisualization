@@ -11,7 +11,8 @@ from datetime import datetime, timedelta
 # Streamlit page configuration
 st.set_page_config(page_title="Stock Dashboard", layout="wide")
 
-st.title("📈 Stock Comparison Dashboard v6")
+st.title("📈 Stock Comparison Dashboard (v6)")
+st.title("")
 
 # Sidebar inputs
 st.sidebar.header("Stock Parameters")
@@ -121,7 +122,7 @@ if st.sidebar.button("Fetch Data"):
 
             ## Relative Strength Index r&d
             st.subheader("RSI Indicator")
-            variable_output = symbol3
+            variable_output = symbol1
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             df1['RSI'] = rsi(df1)
             rsi_fig = go.Figure()
