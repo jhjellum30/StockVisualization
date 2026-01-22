@@ -92,8 +92,9 @@ if st.sidebar.button("Fetch Data"):
             price = stock_info["currentPrice"]
             EPS = stock_info["trailingEps"]
             PE = round(price / EPS, 2)
-            print ("Ticket TRU P/E Ratio-", PE)
-            print (PE)
+            st.write("Ticket TRU P/E Ratio-", PE )
+            
+            #print (PE)
 
 
     except Exception as e:
