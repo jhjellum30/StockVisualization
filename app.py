@@ -53,8 +53,12 @@ if st.sidebar.button("Fetch Data"):
 
             # Volume chart
             st.subheader("Trading Volume Over Time")
-            st.write('<p style="font-size:26px; color:red;">Here is some red text</p>', unsafe_allow_html=True)
-            st.write(symbol1)
+            variable_output = symbol1
+            font_size_px = 30 # Can be a variable or user input (e.g., st.slider)
+
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True
+            
+            #st.write(symbol1)
             st.bar_chart(df1["Volume"])
 
             # Basic statistics
