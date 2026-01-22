@@ -88,21 +88,32 @@ if st.sidebar.button("Fetch Data"):
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             st.write(df3.describe())
 
+            ## P/E Calculations
             st.subheader("Price/Earnings (PE) Caculations")
+            
+            variable_output = symbol1
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             stock_info = yf.Ticker(symbol1).info
             price = stock_info["currentPrice"]
             EPS = stock_info["trailingEps"]
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
 
-            st.subheader("Price/Earnings (PE) Caculations")
+            variable_output = symbol2
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             stock_info = yf.Ticker(symbol2).info
             price = stock_info["currentPrice"]
             EPS = stock_info["trailingEps"]
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
             
-
+            variable_output = symbol3
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
+            stock_info = yf.Ticker(symbol3).info
+            price = stock_info["currentPrice"]
+            EPS = stock_info["trailingEps"]
+            PE = round(price / EPS, 2)
+            st.write("P/E Ratio-", PE )
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
