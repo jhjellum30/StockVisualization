@@ -42,15 +42,11 @@ if st.sidebar.button("Fetch Data"):
         
         if df1.empty:
             st.error(f"No data found for symbol1 '{symbol1}'. Please check the symbol1 and date range.")
+        if df2.empty:
+            st.error(f"No data found for symbol2 '{symbol2}'. Please check the symbol2 and date range.")
+        if df3.empty:
+            st.error(f"No data found for symbol3 '{symbol3}'. Please check the symbol3 and date range.")
         else:
-            #st.subheader(f"Stock Data for {symbol1}")
-            #st.dataframe(df)
-
-            # Price chart
-            #st.subheader("Closing Price Over Time1")
-            #st.line_chart(df1["Close"], color="#ffaa00")
-            #st.subheader("Closing Price Over Time TRU")
-            #st.line_chart(df2["Close"], color="#ff0000")
 
             combined = pd.DataFrame({
                 stock1: df1['Close'],
@@ -59,13 +55,38 @@ if st.sidebar.button("Fetch Data"):
             })
             st.line_chart(combined)
 
+            font_size_px = 30 # Can be a variable or user input (e.g., st.slider)
+            
             # Volume chart
-            #st.subheader("Trading Volume Over Time")
-            #st.bar_chart(df["Volume"])
+            st.subheader("Trading Volume Over Time")
+            variable_output = symbol1
+            #font_size_px = 30 # Can be a variable or user input (e.g., st.slider)
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
+            st.bar_chart(df1["Volume"])
+
+            variable_output = symbol2
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
+            st.bar_chart(df2["Volume"])
+
+            variable_output = symbol3
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
+            st.bar_chart(df3["Volume"])
+            
 
             # Basic statistics
-            #st.subheader("Summary Statistics")
-            #st.write(df.describe())
+            st.subheader("Summary Statistics")
+            
+            variable_output = symbol1
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
+            st.write(df1.describe())
+
+            variable_output = symbol2
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
+            st.write(df2.describe())
+            
+            variable_output = symbol3
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
+            st.write(df3.describe())
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
