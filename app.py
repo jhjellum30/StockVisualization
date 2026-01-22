@@ -64,8 +64,8 @@ if st.sidebar.button("Fetch Data"):
             st.bar_chart(df1["Volume"])
 
             # Basic statistics
-            #st.subheader("Summary Statistics")
-            #st.write(df.describe())
+            st.subheader("Summary Statistics")
+            st.write(df1.describe())
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
