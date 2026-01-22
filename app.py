@@ -46,12 +46,6 @@ if st.sidebar.button("Fetch Data"):
             #st.subheader(f"Stock Data for {symbol1}")
             #st.dataframe(df)
 
-            # Price chart
-            #st.subheader("Closing Price Over Time1")
-            #st.line_chart(df1["Close"], color="#ffaa00")
-            #st.subheader("Closing Price Over Time TRU")
-            #st.line_chart(df2["Close"], color="#ff0000")
-
             combined = pd.DataFrame({
                 stock1: df1['Close'],
                 stock2: df2['Close'],
@@ -60,7 +54,7 @@ if st.sidebar.button("Fetch Data"):
             st.line_chart(combined)
 
             # Volume chart
-            st.subheader("Trading Volume Over Time")
+            st.subheader("Trading Volume Over Time (symbol1)")
             st.bar_chart(df1["Volume"])
 
             # Basic statistics
