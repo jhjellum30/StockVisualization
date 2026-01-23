@@ -120,7 +120,7 @@ if st.sidebar.button("Fetch Data"):
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
 
-            ## Relative Strength Index r&d
+            ## Relative Strength Index r&d (more to come!)
             st.subheader("RSI Indicator")
             variable_output = symbol1
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
