@@ -134,7 +134,7 @@ if st.sidebar.button("Fetch Data"):
 
             variable_output = symbol3
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
-            df1['RSI'] = rsi(df3)
+            df3['RSI'] = rsi(df3)
             rsi_fig = go.Figure()
             rsi_fig.add_trace(go.Scatter(x=df3.index, y=df3['RSI'], name="RSI"))
             rsi_fig.add_hline(y=70, line_dash="dash")
