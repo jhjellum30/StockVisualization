@@ -122,11 +122,21 @@ if st.sidebar.button("Fetch Data"):
 
             ## Relative Strength Index r&d (more to come!)
             st.subheader("RSI Indicator")
+            
             variable_output = symbol1
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             df1['RSI'] = rsi(df1)
             rsi_fig = go.Figure()
             rsi_fig.add_trace(go.Scatter(x=df1.index, y=df1['RSI'], name="RSI"))
+            rsi_fig.add_hline(y=70, line_dash="dash")
+            rsi_fig.add_hline(y=30, line_dash="dash")
+            st.plotly_chart(rsi_fig, use_container_width=True)
+
+            variable_output = symbol3
+            st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
+            df1['RSI'] = rsi(df3)
+            rsi_fig = go.Figure()
+            rsi_fig.add_trace(go.Scatter(x=df3.index, y=df3['RSI'], name="RSI"))
             rsi_fig.add_hline(y=70, line_dash="dash")
             rsi_fig.add_hline(y=30, line_dash="dash")
             st.plotly_chart(rsi_fig, use_container_width=True)
