@@ -107,7 +107,7 @@ if st.sidebar.button("Fetch Data"):
             formatted_shares = format(shares, ",d")
             st.write("Outstanding Shares-", formatted_shares)
             market_value = round(shares * price,2)
-            formatted_market_value = format(f"{market_value:,.2f}"
+            formatted_market_value = f"{market_value:,.2f}"
             st.write("Market Value-", formatted_market_value)
 
             variable_output = symbol2
