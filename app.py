@@ -94,7 +94,7 @@ if st.sidebar.button("Fetch Data"):
             st.write(df3.describe())
 
             ## P/E Calculations
-            st.subheader("Price/Earnings (PE) Caculations")
+            st.subheader("Price/Earnings (PE) Caculations & Outstanding Shares")
             
             variable_output = symbol1
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
@@ -105,7 +105,7 @@ if st.sidebar.button("Fetch Data"):
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
             formatted_shares = format(shares, ",d")
-            st.write("Outstanding Shares-", formatted_shares)
+            st.write("Outstanding Shares- :green", formatted_shares)
 
             variable_output = symbol2
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
@@ -115,7 +115,8 @@ if st.sidebar.button("Fetch Data"):
             EPS = stock_info["trailingEps"]
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
-            st.write("Outstanding Shares-", shares)
+            formatted_shares = format(shares, ",d")
+            st.write("Outstanding Shares-", formatted_shares)
             
             variable_output = symbol3
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
@@ -125,7 +126,8 @@ if st.sidebar.button("Fetch Data"):
             EPS = stock_info["trailingEps"]
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
-            st.write("Outstanding Shares-", shares)
+            formatted_shares = format(shares, ",d")
+            st.write("Outstanding Shares-", formatted_shares)
 
             ## Relative Strength Index r&d (more to come!)
             st.subheader("RSI Indicator")
