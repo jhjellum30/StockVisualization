@@ -105,7 +105,7 @@ if st.sidebar.button("Fetch Data"):
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
             formatted_shares = format(shares, ",d")
-            st.write("Outstanding Shares- :green", formatted_shares)
+            st.write("Outstanding Shares-", formatted_shares)
 
             variable_output = symbol2
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
