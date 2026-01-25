@@ -120,6 +120,9 @@ if st.sidebar.button("Fetch Data"):
             st.write("P/E Ratio-", PE )
             formatted_shares = format(shares, ",d")
             st.write("Outstanding Shares-", formatted_shares)
+            market_value = round(shares * price,2)
+            formatted_market_value = f"{market_value:,.2f}"
+            st.write("Market Value-", formatted_market_value)
             
             variable_output = symbol3
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
@@ -131,6 +134,9 @@ if st.sidebar.button("Fetch Data"):
             st.write("P/E Ratio-", PE )
             formatted_shares = format(shares, ",d")
             st.write("Outstanding Shares-", formatted_shares)
+            market_value = round(shares * price,2)
+            formatted_market_value = f"{market_value:,.2f}"
+            st.write("Market Value-", formatted_market_value)
 
             ## Relative Strength Index r&d (more to come!)
             st.subheader("RSI Indicator")
