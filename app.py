@@ -104,23 +104,28 @@ if st.sidebar.button("Fetch Data"):
             EPS = stock_info["trailingEps"]
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
-            st.write("Outstanding Shares-", shares)
+            formatted_shares = format(shares, ",d")
+            st.write("Outstanding Shares-", formatted_shares)
 
             variable_output = symbol2
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             stock_info = yf.Ticker(symbol2).info
             price = stock_info["currentPrice"]
+            shares = stock_info["sharesOutstanding"]
             EPS = stock_info["trailingEps"]
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
+            st.write("Outstanding Shares-", shares)
             
             variable_output = symbol3
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             stock_info = yf.Ticker(symbol3).info
             price = stock_info["currentPrice"]
+            shares = stock_info["sharesOutstanding"]
             EPS = stock_info["trailingEps"]
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
+            st.write("Outstanding Shares-", shares)
 
             ## Relative Strength Index r&d (more to come!)
             st.subheader("RSI Indicator")
