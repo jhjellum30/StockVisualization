@@ -100,9 +100,11 @@ if st.sidebar.button("Fetch Data"):
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
             stock_info = yf.Ticker(symbol1).info
             price = stock_info["currentPrice"]
+            shares = stock_info["sharesOutstanding")
             EPS = stock_info["trailingEps"]
             PE = round(price / EPS, 2)
             st.write("P/E Ratio-", PE )
+            st.write("Outstanding Shares-", shares)
 
             variable_output = symbol2
             st.markdown(f'<p style="font-size: {font_size_px}px;">{variable_output}</p>', unsafe_allow_html=True)
